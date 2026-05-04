@@ -1,0 +1,368 @@
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AdminAuthService } from '../../services/admin-auth.service';
+
+@Component({
+  selector: 'app-admin-login',
+  standalone: true,
+  imports: [FormsModule],
+  template: `
+    <div class="login-page">
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+        <div class="left-content">
+          <div class="logo">
+            <span class="nex">NEX</span><span class="hire">HIRE</span>
+          </div>
+          <div class="logo-sub">ADMINISTRATEUR</div>
+          <div class="separator"></div>
+
+          <div class="features">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="20" height="20" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Gestion des forums</div>
+                <div class="feature-desc">Configurez et gérez les événements</div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="20" height="20" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Gestion des recruteurs</div>
+                <div class="feature-desc">Créez et gérez les comptes recruteurs</div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="20" height="20" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M3 21h18M3 7v14M21 7v14M6 7V4a1 1 0 011-1h10a1 1 0 011 1v3M6 7h12"/>
+                  <path d="M9 11h.01M12 11h.01M15 11h.01"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Gestion des entreprises</div>
+                <div class="feature-desc">Gérez les entreprises participantes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <div class="form-wrapper">
+          <h1 class="form-title">Connexion Administrateur</h1>
+          <p class="form-subtitle">Accès réservé aux administrateurs autorisés</p>
+
+          <form (ngSubmit)="onLogin()" class="form">
+            <div class="field">
+              <label class="label">Adresse email</label>
+              <input
+                type="email"
+                class="input"
+                placeholder="admin&#64;nexhire.ma"
+                [(ngModel)]="email"
+                name="email"
+              />
+            </div>
+
+            <div class="field">
+              <label class="label">Mot de passe</label>
+              <div class="password-wrap">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  class="input"
+                  placeholder="••••••••"
+                  [(ngModel)]="password"
+                  name="password"
+                />
+                <button type="button" class="eye-btn" (click)="showPassword = !showPassword">
+                  @if (showPassword) {
+                    <svg width="18" height="18" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/>
+                      <line x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                  } @else {
+                    <svg width="18" height="18" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  }
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Se connecter →
+            </button>
+          </form>
+
+          <p class="demo-hint">Utilisez n'importe quels identifiants pour la démo</p>
+        </div>
+      </div>
+    </div>
+  `,
+  styles: [`
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .login-page {
+      display: flex;
+      min-height: 100vh;
+      background: #0a0a0a;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── LEFT ── */
+    .left-panel {
+      flex: 1;
+      background: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 56px;
+      border-right: 1px solid #2a2a2a;
+    }
+
+    .left-content {
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .nex { color: #ffffff; }
+    .hire { color: #22c55e; }
+
+    .logo-sub {
+      font-size: 10px;
+      color: #6b7280;
+      letter-spacing: 3.5px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    .separator {
+      width: 64px;
+      height: 2px;
+      background: #22c55e;
+      margin: 24px 0;
+      border-radius: 1px;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      border: 1px solid #242424;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(34, 197, 94, 0.25);
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(34, 197, 94, 0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(34, 197, 94, 0.15);
+    }
+
+    .feature-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 2px;
+    }
+
+    .feature-desc {
+      font-size: 11.5px;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+
+    /* ── RIGHT ── */
+    .right-panel {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 56px;
+      background: #0d0d0d;
+    }
+
+    .form-wrapper {
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .form-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .form-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 40px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #d1d5db;
+    }
+
+    .input {
+      width: 100%;
+      padding: 15px 18px;
+      background: #252525;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      color: #9ca3af;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      -webkit-appearance: none;
+      color-scheme: dark;
+    }
+
+    .input:focus {
+      border-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    }
+
+    .input::placeholder {
+      color: #6b7280;
+    }
+
+    /* Override Chrome autofill — force dark background and gray text */
+    .input:-webkit-autofill,
+    .input:-webkit-autofill:hover,
+    .input:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px #252525 inset !important;
+      -webkit-text-fill-color: #9ca3af !important;
+      caret-color: #9ca3af;
+      border-color: #333333;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .password-wrap {
+      position: relative;
+    }
+
+    .password-wrap .input {
+      padding-right: 52px;
+    }
+
+    .eye-btn {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      color: #6b7280;
+      transition: color 0.15s;
+    }
+
+    .eye-btn:hover { color: #9ca3af; }
+
+    .submit-btn {
+      margin-top: 4px;
+      width: 100%;
+      padding: 16px;
+      background: #22c55e;
+      color: #000000;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: background 0.15s, transform 0.1s;
+      letter-spacing: 0.2px;
+    }
+
+    .submit-btn:hover { background: #16a34a; }
+    .submit-btn:active { transform: scale(0.99); }
+
+    .demo-hint {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #555555;
+    }
+
+    @media (max-width: 768px) {
+      .login-page { flex-direction: column; }
+      .left-panel { padding: 32px 24px; }
+      .right-panel { padding: 32px 24px; }
+    }
+  `]
+})
+export class AdminLoginComponent {
+  email = '';
+  password = '';
+  showPassword = false;
+
+  constructor(private authService: AdminAuthService) {}
+
+  onLogin(): void {
+    this.authService.login();
+  }
+}
