@@ -8,107 +8,102 @@ import { AdminAuthService } from '../../services/admin-auth.service';
   imports: [RouterLink, RouterLinkActive],
   template: `
     <aside class="sidebar">
-      <div class="logo-section">
-        <div class="logo">
-          <span class="nex">NEX</span><span class="hire">HIRE</span>
-        </div>
-        <div class="subtitle">Administrateur</div>
+      <div class="sidebar-logo">
+        <div class="logo-text">NEX<span>HIRE</span></div>
+        <div class="logo-sub">Administrateur</div>
       </div>
 
       <nav class="nav">
         <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-item">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
           </svg>
-          Tableau de bord
+          <span class="nav-label">Tableau de bord</span>
         </a>
         <a routerLink="/admin/forums" routerLinkActive="active" class="nav-item">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
             <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
           </svg>
-          Forums
+          <span class="nav-label">Forums</span>
         </a>
         <a routerLink="/admin/entreprises" routerLinkActive="active" class="nav-item">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 21h18M3 7v14M21 7v14M6 7V4a1 1 0 011-1h10a1 1 0 011 1v3M6 7h12"/>
-            <path d="M9 11h.01M12 11h.01M15 11h.01M9 15h.01M12 15h.01M15 15h.01"/>
           </svg>
-          Entreprises
+          <span class="nav-label">Entreprises</span>
         </a>
         <a routerLink="/admin/recruteurs" routerLinkActive="active" class="nav-item">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
           </svg>
-          Recruteurs
+          <span class="nav-label">Recruteurs</span>
         </a>
       </nav>
 
-      <div class="sidebar-bottom">
-        <div class="profile-card">
-          <div class="avatar">AD</div>
-          <div class="profile-info">
-            <div class="profile-name">Admin</div>
-            <div class="profile-email">admin&#64;nexhire.ma</div>
-          </div>
+      <div class="user-card">
+        <div class="user-avatar">AD</div>
+        <div class="user-info">
+          <div class="user-name">Admin</div>
+          <div class="user-role">admin&#64;nexhire.ma</div>
         </div>
-        <button class="logout-btn" (click)="logout()">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
-          </svg>
-          Se déconnecter
-        </button>
       </div>
+
+      <button class="logout-btn" (click)="logout()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Se déconnecter
+      </button>
     </aside>
   `,
   styles: [`
-    :host { display: block; height: 100vh; }
-
     .sidebar {
-      width: 240px;
-      min-width: 240px;
-      background: var(--card);
+      width: 220px;
       height: 100vh;
-      position: sticky;
-      top: 0;
+      background: var(--card);
+      border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      border-right: 1px solid var(--border);
+      flex-shrink: 0;
       overflow: hidden;
+      position: sticky;
+      top: 0;
     }
 
-    .logo-section {
-      padding: 28px 20px 20px;
+    .sidebar-logo {
+      padding: 24px 20px;
       border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1px;
+    .logo-text {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text);
     }
 
-    .nex { color: var(--text-strong); }
-    .hire { color: var(--accent-hex); }
+    .logo-text span { color: var(--accent); }
 
-    .subtitle {
-      font-size: 11px;
+    .logo-sub {
+      font-size: 10px;
       color: var(--text-muted);
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      margin-top: 2px;
     }
 
     .nav {
       flex: 1;
-      padding: 16px 12px;
+      padding: 12px 10px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      overflow-y: auto;
+      gap: 2px;
     }
 
     .nav-item {
@@ -117,105 +112,82 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       gap: 10px;
       padding: 10px 12px;
       border-radius: 8px;
-      color: var(--text-soft);
-      text-decoration: none;
-      font-size: 14px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 13px;
       font-weight: 500;
-      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      transition: all 0.15s;
+      position: relative;
+      text-decoration: none;
     }
 
-    .nav-item:hover {
-      background: var(--field);
-      color: var(--text-strong);
-    }
+    .nav-item:hover { background: rgba(255,255,255,0.04); color: var(--text); }
 
-    .nav-item.active {
-      background: rgba(34, 197, 94, 0.12);
-      color: var(--accent-hex);
-    }
+    .nav-item.active { background: rgba(34,197,94,0.1); color: var(--accent); }
 
-    .nav-item.active svg {
-      stroke: var(--accent-hex);
-    }
+    .nav-icon { width: 18px; height: 18px; flex-shrink: 0; }
 
-    .sidebar-bottom {
-      padding: 16px 12px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .nav-label { flex: 1; }
 
-    .profile-card {
+    .user-card {
+      margin: 0 10px 6px;
+      padding: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 12px;
-      background: var(--field);
-      border-radius: 8px;
     }
 
-    .avatar {
+    .user-avatar {
       width: 34px;
       height: 34px;
-      background: var(--accent-hex);
-      border-radius: 50%;
+      border-radius: 8px;
+      background: rgba(34,197,94,0.15);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #000000;
       flex-shrink: 0;
     }
 
-    .profile-info { overflow: hidden; }
+    .user-name { font-size: 12px; font-weight: 600; color: var(--text); }
 
-    .profile-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-strong);
-    }
-
-    .profile-email {
-      font-size: 11px;
-      color: var(--text-muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    .user-role { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
 
     .logout-btn {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
-      width: 100%;
-      padding: 9px 12px;
-      background: rgba(239, 68, 68, 0.1);
-      color: var(--error);
-      border: 1px solid rgba(239, 68, 68, 0.2);
+      margin: 0 10px 12px;
+      padding: 10px 12px;
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.15);
       border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
+      color: var(--error);
+      font-size: 12px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s;
+      width: calc(100% - 20px);
+      text-align: left;
+      transition: all 0.15s;
     }
 
-    .logout-btn:hover {
-      background: rgba(239, 68, 68, 0.2);
-    }
+    .logout-btn:hover { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.3); }
 
     @media (max-width: 768px) {
-      .sidebar {
-        width: 60px;
-        min-width: 60px;
-      }
-      .logo-section, .subtitle, .nav-item span,
-      .profile-info, .logout-btn span { display: none; }
+      .sidebar { width: 60px; }
+      .sidebar-logo, .logo-sub, .nav-label, .user-info { display: none; }
       .nav-item { justify-content: center; padding: 12px; }
-      .profile-card { justify-content: center; }
-      .logout-btn { padding: 10px; }
+      .user-card { justify-content: center; }
+      .logout-btn { justify-content: center; width: calc(100% - 20px); }
     }
   `]
 })
