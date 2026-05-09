@@ -123,19 +123,18 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .login-page {
       display: flex;
       min-height: 100vh;
-      background: #0a0a0a;
-      font-family: Arial, sans-serif;
+      background: var(--bg);
     }
 
     /* ── LEFT ── */
     .left-panel {
       flex: 1;
-      background: #111111;
+      background: var(--surface);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 48px 56px;
-      border-right: 1px solid #2a2a2a;
+      border-right: 1px solid var(--border);
     }
 
     .left-content {
@@ -149,12 +148,12 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       letter-spacing: 1.5px;
     }
 
-    .nex { color: #ffffff; }
-    .hire { color: #22c55e; }
+    .nex { color: var(--text-strong); }
+    .hire { color: var(--accent-hex); }
 
     .logo-sub {
       font-size: 10px;
-      color: #6b7280;
+      color: var(--text-muted);
       letter-spacing: 3.5px;
       margin-top: 5px;
       text-transform: uppercase;
@@ -163,7 +162,7 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .separator {
       width: 64px;
       height: 2px;
-      background: #22c55e;
+      background: var(--accent-hex);
       margin: 24px 0;
       border-radius: 1px;
     }
@@ -181,7 +180,7 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       padding: 14px 16px;
       background: rgba(255,255,255,0.03);
       border-radius: 10px;
-      border: 1px solid #242424;
+      border: 1px solid var(--border);
       transition: border-color 0.15s, background 0.15s;
     }
 
@@ -205,13 +204,13 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .feature-title {
       font-size: 13px;
       font-weight: 600;
-      color: #e5e7eb;
+      color: var(--text);
       margin-bottom: 2px;
     }
 
     .feature-desc {
       font-size: 11.5px;
-      color: #6b7280;
+      color: var(--text-muted);
       line-height: 1.4;
     }
 
@@ -222,7 +221,7 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       align-items: center;
       justify-content: center;
       padding: 48px 56px;
-      background: #0d0d0d;
+      background: var(--bg);
     }
 
     .form-wrapper {
@@ -233,14 +232,14 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .form-title {
       font-size: 32px;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--text-strong);
       margin-bottom: 10px;
       line-height: 1.15;
     }
 
     .form-subtitle {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-muted);
       margin-bottom: 40px;
     }
 
@@ -259,41 +258,40 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .label {
       font-size: 14px;
       font-weight: 600;
-      color: #d1d5db;
+      color: var(--text);
     }
 
     .input {
       width: 100%;
       padding: 15px 18px;
-      background: #252525;
-      border: 1px solid #333333;
+      background: var(--field);
+      border: 1px solid var(--border2);
       border-radius: 12px;
-      color: #9ca3af;
+      color: var(--text-soft);
       font-size: 15px;
-      font-family: Arial, sans-serif;
       outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
       -webkit-appearance: none;
+      appearance: none;
       color-scheme: dark;
     }
 
     .input:focus {
-      border-color: #22c55e;
+      border-color: var(--accent-hex);
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
     }
 
     .input::placeholder {
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
-    /* Override Chrome autofill — force dark background and gray text */
     .input:-webkit-autofill,
     .input:-webkit-autofill:hover,
     .input:-webkit-autofill:focus {
-      -webkit-box-shadow: 0 0 0 1000px #252525 inset !important;
-      -webkit-text-fill-color: #9ca3af !important;
-      caret-color: #9ca3af;
-      border-color: #333333;
+      -webkit-box-shadow: 0 0 0 1000px var(--field) inset !important;
+      -webkit-text-fill-color: var(--text-soft) !important;
+      caret-color: var(--text-soft);
+      border-color: var(--border2);
       transition: background-color 5000s ease-in-out 0s;
     }
 
@@ -316,24 +314,23 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       padding: 4px;
       display: flex;
       align-items: center;
-      color: #6b7280;
+      color: var(--text-muted);
       transition: color 0.15s;
     }
 
-    .eye-btn:hover { color: #9ca3af; }
+    .eye-btn:hover { color: var(--text-soft); }
 
     .submit-btn {
       margin-top: 4px;
       width: 100%;
       padding: 16px;
-      background: #22c55e;
+      background: var(--accent-hex);
       color: #000000;
       border: none;
       border-radius: 12px;
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s, transform 0.1s;
       letter-spacing: 0.2px;
     }
@@ -345,7 +342,7 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       margin-top: 20px;
       text-align: center;
       font-size: 13px;
-      color: #555555;
+      color: var(--text-dim);
     }
 
     @media (max-width: 768px) {

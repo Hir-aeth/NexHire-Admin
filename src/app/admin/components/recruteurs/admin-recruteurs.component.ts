@@ -25,7 +25,7 @@ import { AdminDataService, Recruteur } from '../../services/admin-data.service';
 
         <!-- Search -->
         <div class="search-wrap">
-          <svg width="16" height="16" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24" class="search-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="search-icon" style="color: var(--text-muted)">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           <input
@@ -139,8 +139,333 @@ import { AdminDataService, Recruteur } from '../../services/admin-data.service';
     .layout {
       display: flex;
       min-height: 100vh;
-      background: #0a0a0a;
-      font-family: Arial, sans-serif;
+      background: var(--bg);
+    }
+
+    .main {
+      flex: 1;
+      padding: 32px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-strong);
+    }
+
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--accent-hex);
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover { background: #16a34a; }
+
+    .search-wrap { position: relative; }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 11px 14px 11px 42px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-strong);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input:focus { border-color: var(--accent-hex); }
+    .search-input::placeholder { color: var(--text-muted); }
+
+    .table-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    th {
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--field);
+    }
+
+    td {
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--text);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .td-bold { color: var(--text-strong); font-weight: 600; }
+    .td-secondary { color: var(--text-soft); font-size: 13px; }
+
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .recruiter-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .recruiter-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--accent-hex);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .badge-actif {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--accent-hex);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .badge-inactif {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(107, 114, 128, 0.15);
+      color: var(--text-muted);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .actions-cell {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-modifier {
+      padding: 6px 12px;
+      background: var(--border);
+      color: var(--text);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-modifier:hover { background: rgba(255,255,255,0.06); }
+
+    .btn-desactiver {
+      padding: 6px 12px;
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-desactiver:hover { background: rgba(239, 68, 68, 0.2); }
+
+    .btn-reinitialiser {
+      padding: 6px 12px;
+      background: var(--border);
+      color: var(--text);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-reinitialiser:hover { background: rgba(255,255,255,0.06); }
+
+    .empty-row {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 32px !important;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      width: 440px;
+      max-width: 95vw;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s;
+    }
+
+    .modal-close:hover { color: var(--text-strong); }
+
+    .modal-body {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--field);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      color: var(--text-strong);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .input:focus { border-color: var(--accent-hex); }
+
+    select.input option { background: var(--field); }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-cancel {
+      padding: 9px 20px;
+      background: var(--field);
+      color: var(--text-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-save {
+      padding: 9px 20px;
+      background: var(--accent-hex);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-save:hover { background: #16a34a; }
+
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--accent-hex);
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .main { padding: 20px; }
+      .actions-cell { flex-direction: column; align-items: flex-start; }
     }
 
     .main {

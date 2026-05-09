@@ -70,34 +70,33 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .sidebar {
       width: 240px;
       min-width: 240px;
-      background: #1a1a1a;
+      background: var(--card);
       height: 100vh;
       position: sticky;
       top: 0;
       display: flex;
       flex-direction: column;
-      border-right: 1px solid #2d2d2d;
+      border-right: 1px solid var(--border);
       overflow: hidden;
     }
 
     .logo-section {
       padding: 28px 20px 20px;
-      border-bottom: 1px solid #2d2d2d;
+      border-bottom: 1px solid var(--border);
     }
 
     .logo {
       font-size: 22px;
       font-weight: 800;
       letter-spacing: 1px;
-      font-family: Arial, sans-serif;
     }
 
-    .nex { color: #ffffff; }
-    .hire { color: #22c55e; }
+    .nex { color: var(--text-strong); }
+    .hire { color: var(--accent-hex); }
 
     .subtitle {
       font-size: 11px;
-      color: #6b7280;
+      color: var(--text-muted);
       margin-top: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -118,31 +117,30 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       gap: 10px;
       padding: 10px 12px;
       border-radius: 8px;
-      color: #9ca3af;
+      color: var(--text-soft);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
       transition: background 0.15s, color 0.15s;
-      font-family: Arial, sans-serif;
     }
 
     .nav-item:hover {
-      background: #252525;
-      color: #ffffff;
+      background: var(--field);
+      color: var(--text-strong);
     }
 
     .nav-item.active {
       background: rgba(34, 197, 94, 0.12);
-      color: #22c55e;
+      color: var(--accent-hex);
     }
 
     .nav-item.active svg {
-      stroke: #22c55e;
+      stroke: var(--accent-hex);
     }
 
     .sidebar-bottom {
       padding: 16px 12px;
-      border-top: 1px solid #2d2d2d;
+      border-top: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -153,14 +151,14 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       align-items: center;
       gap: 10px;
       padding: 10px 12px;
-      background: #252525;
+      background: var(--field);
       border-radius: 8px;
     }
 
     .avatar {
       width: 34px;
       height: 34px;
-      background: #22c55e;
+      background: var(--accent-hex);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -169,7 +167,6 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       font-weight: 700;
       color: #000000;
       flex-shrink: 0;
-      font-family: Arial, sans-serif;
     }
 
     .profile-info { overflow: hidden; }
@@ -177,17 +174,15 @@ import { AdminAuthService } from '../../services/admin-auth.service';
     .profile-name {
       font-size: 13px;
       font-weight: 600;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
+      color: var(--text-strong);
     }
 
     .profile-email {
       font-size: 11px;
-      color: #6b7280;
+      color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-family: Arial, sans-serif;
     }
 
     .logout-btn {
@@ -198,14 +193,13 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       width: 100%;
       padding: 9px 12px;
       background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
+      color: var(--error);
       border: 1px solid rgba(239, 68, 68, 0.2);
       border-radius: 8px;
       font-size: 13px;
       font-weight: 500;
       cursor: pointer;
       transition: background 0.15s;
-      font-family: Arial, sans-serif;
     }
 
     .logout-btn:hover {

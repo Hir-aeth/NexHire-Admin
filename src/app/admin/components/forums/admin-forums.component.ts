@@ -105,8 +105,7 @@ import { AdminDataService } from '../../services/admin-data.service';
     .layout {
       display: flex;
       min-height: 100vh;
-      background: #0a0a0a;
-      font-family: Arial, sans-serif;
+      background: var(--bg);
     }
 
     .main {
@@ -123,7 +122,7 @@ import { AdminDataService } from '../../services/admin-data.service';
     .page-title {
       font-size: 22px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-strong);
     }
 
     .content-grid {
@@ -134,8 +133,8 @@ import { AdminDataService } from '../../services/admin-data.service';
     }
 
     .card {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
     }
@@ -159,36 +158,34 @@ import { AdminDataService } from '../../services/admin-data.service';
     .label {
       font-size: 13px;
       font-weight: 500;
-      color: #d1d5db;
+      color: var(--text);
     }
 
     .input {
       width: 100%;
       padding: 10px 14px;
-      background: #252525;
-      border: 1px solid #2d2d2d;
+      background: var(--field);
+      border: 1px solid var(--border2);
       border-radius: 8px;
-      color: #ffffff;
+      color: var(--text-strong);
       font-size: 14px;
-      font-family: Arial, sans-serif;
       outline: none;
       transition: border-color 0.15s;
     }
 
-    .input:focus { border-color: #22c55e; }
+    .input:focus { border-color: var(--accent-hex); }
 
-    .input::placeholder { color: #4b5563; }
+    .input::placeholder { color: var(--text-muted); }
 
     .textarea {
       resize: vertical;
       line-height: 1.5;
     }
 
-    /* Companies */
     .section-title {
       font-size: 15px;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--text-strong);
       margin-bottom: 16px;
     }
 
@@ -204,9 +201,9 @@ import { AdminDataService } from '../../services/admin-data.service';
       align-items: center;
       justify-content: space-between;
       padding: 10px 12px;
-      background: #252525;
+      background: var(--field);
       border-radius: 8px;
-      border: 1px solid #2d2d2d;
+      border: 1px solid var(--border);
     }
 
     .company-name {
@@ -214,14 +211,14 @@ import { AdminDataService } from '../../services/admin-data.service';
       align-items: center;
       gap: 8px;
       font-size: 14px;
-      color: #d1d5db;
+      color: var(--text);
     }
 
     .remove-btn {
       background: none;
       border: none;
       cursor: pointer;
-      color: #4b5563;
+      color: var(--text-muted);
       padding: 4px;
       border-radius: 4px;
       display: flex;
@@ -230,7 +227,7 @@ import { AdminDataService } from '../../services/admin-data.service';
     }
 
     .remove-btn:hover {
-      color: #ef4444;
+      color: var(--error);
       background: rgba(239, 68, 68, 0.1);
     }
 
@@ -243,7 +240,7 @@ import { AdminDataService } from '../../services/admin-data.service';
 
     .add-btn {
       padding: 10px 16px;
-      background: #22c55e;
+      background: var(--accent-hex);
       color: #000000;
       border: none;
       border-radius: 8px;
@@ -251,13 +248,11 @@ import { AdminDataService } from '../../services/admin-data.service';
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 
     .add-btn:hover { background: #16a34a; }
 
-    /* Actions */
     .actions {
       display: flex;
       justify-content: flex-end;
@@ -267,32 +262,30 @@ import { AdminDataService } from '../../services/admin-data.service';
 
     .btn-cancel {
       padding: 10px 24px;
-      background: #252525;
-      color: #9ca3af;
-      border: 1px solid #2d2d2d;
+      background: var(--field);
+      color: var(--text-soft);
+      border: 1px solid var(--border);
       border-radius: 8px;
       font-size: 14px;
       font-weight: 500;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 
-    .btn-cancel:hover { background: #2d2d2d; }
+    .btn-cancel:hover { background: rgba(255,255,255,0.04); }
 
     .btn-save {
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 10px 24px;
-      background: #22c55e;
+      background: var(--accent-hex);
       color: #000000;
       border: none;
       border-radius: 8px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 
@@ -302,13 +295,12 @@ import { AdminDataService } from '../../services/admin-data.service';
       position: fixed;
       bottom: 32px;
       right: 32px;
-      background: #22c55e;
+      background: var(--accent-hex);
       color: #000;
       padding: 12px 20px;
       border-radius: 8px;
       font-size: 14px;
       font-weight: 600;
-      font-family: Arial, sans-serif;
       animation: fadeIn 0.2s ease;
     }
 

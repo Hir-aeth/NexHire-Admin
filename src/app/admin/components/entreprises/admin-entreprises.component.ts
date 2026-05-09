@@ -25,7 +25,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
 
         <!-- Search -->
         <div class="search-wrap">
-          <svg width="16" height="16" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24" class="search-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="search-icon" style="color: var(--text-muted)">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           <input
@@ -129,8 +129,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     .layout {
       display: flex;
       min-height: 100vh;
-      background: #0a0a0a;
-      font-family: Arial, sans-serif;
+      background: var(--bg);
     }
 
     .main {
@@ -151,7 +150,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     .page-title {
       font-size: 22px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-strong);
     }
 
     .btn-primary {
@@ -159,23 +158,19 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       align-items: center;
       gap: 8px;
       padding: 10px 18px;
-      background: #22c55e;
+      background: var(--accent-hex);
       color: #000000;
       border: none;
       border-radius: 8px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 
     .btn-primary:hover { background: #16a34a; }
 
-    /* Search */
-    .search-wrap {
-      position: relative;
-    }
+    .search-wrap { position: relative; }
 
     .search-icon {
       position: absolute;
@@ -187,23 +182,21 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     .search-input {
       width: 100%;
       padding: 11px 14px 11px 42px;
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 8px;
-      color: #ffffff;
+      color: var(--text-strong);
       font-size: 14px;
-      font-family: Arial, sans-serif;
       outline: none;
       transition: border-color 0.15s;
     }
 
-    .search-input:focus { border-color: #22c55e; }
-    .search-input::placeholder { color: #4b5563; }
+    .search-input:focus { border-color: var(--accent-hex); }
+    .search-input::placeholder { color: var(--text-muted); }
 
-    /* Table */
     .table-card {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
     }
@@ -217,28 +210,28 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       text-align: left;
       font-size: 12px;
       font-weight: 600;
-      color: #6b7280;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      background: #1f1f1f;
+      background: var(--field);
     }
 
     td {
       padding: 14px 20px;
       font-size: 14px;
-      color: #d1d5db;
-      border-top: 1px solid #252525;
+      color: var(--text);
+      border-top: 1px solid rgba(255,255,255,0.04);
     }
 
-    .td-bold { color: #ffffff; font-weight: 600; }
+    .td-bold { color: var(--text-strong); font-weight: 600; }
 
-    tr:hover td { background: #212121; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
 
     .badge-actif {
       display: inline-block;
       padding: 3px 10px;
       background: rgba(34, 197, 94, 0.12);
-      color: #22c55e;
+      color: var(--accent-hex);
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
@@ -248,7 +241,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       display: inline-block;
       padding: 3px 10px;
       background: rgba(107, 114, 128, 0.15);
-      color: #6b7280;
+      color: var(--text-muted);
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
@@ -262,27 +255,25 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
 
     .btn-modifier {
       padding: 6px 14px;
-      background: #2d2d2d;
-      color: #d1d5db;
-      border: 1px solid #3d3d3d;
+      background: var(--border);
+      color: var(--text);
+      border: 1px solid var(--border2);
       border-radius: 6px;
       font-size: 13px;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 
-    .btn-modifier:hover { background: #383838; }
+    .btn-modifier:hover { background: rgba(255,255,255,0.06); }
 
     .btn-supprimer {
       padding: 6px 14px;
       background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
+      color: var(--error);
       border: 1px solid rgba(239, 68, 68, 0.2);
       border-radius: 6px;
       font-size: 13px;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 
@@ -290,11 +281,10 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
 
     .empty-row {
       text-align: center;
-      color: #6b7280;
+      color: var(--text-muted);
       padding: 32px !important;
     }
 
-    /* Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -306,8 +296,8 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     }
 
     .modal {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       width: 440px;
       max-width: 95vw;
@@ -318,27 +308,27 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       align-items: center;
       justify-content: space-between;
       padding: 20px 24px;
-      border-bottom: 1px solid #2d2d2d;
+      border-bottom: 1px solid var(--border);
     }
 
     .modal-header h3 {
       font-size: 16px;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--text-strong);
     }
 
     .modal-close {
       background: none;
       border: none;
       cursor: pointer;
-      color: #6b7280;
+      color: var(--text-muted);
       padding: 4px;
       display: flex;
       align-items: center;
       transition: color 0.15s;
     }
 
-    .modal-close:hover { color: #ffffff; }
+    .modal-close:hover { color: var(--text-strong); }
 
     .modal-body {
       padding: 20px 24px;
@@ -356,55 +346,52 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     .label {
       font-size: 13px;
       font-weight: 500;
-      color: #d1d5db;
+      color: var(--text);
     }
 
     .input {
       width: 100%;
       padding: 10px 14px;
-      background: #252525;
-      border: 1px solid #2d2d2d;
+      background: var(--field);
+      border: 1px solid var(--border2);
       border-radius: 8px;
-      color: #ffffff;
+      color: var(--text-strong);
       font-size: 14px;
-      font-family: Arial, sans-serif;
       outline: none;
       transition: border-color 0.15s;
     }
 
-    .input:focus { border-color: #22c55e; }
+    .input:focus { border-color: var(--accent-hex); }
 
-    select.input option { background: #252525; }
+    select.input option { background: var(--field); }
 
     .modal-footer {
       display: flex;
       justify-content: flex-end;
       gap: 10px;
       padding: 16px 24px;
-      border-top: 1px solid #2d2d2d;
+      border-top: 1px solid var(--border);
     }
 
     .btn-cancel {
       padding: 9px 20px;
-      background: #252525;
-      color: #9ca3af;
-      border: 1px solid #2d2d2d;
+      background: var(--field);
+      color: var(--text-soft);
+      border: 1px solid var(--border);
       border-radius: 8px;
       font-size: 14px;
       cursor: pointer;
-      font-family: Arial, sans-serif;
     }
 
     .btn-save {
       padding: 9px 20px;
-      background: #22c55e;
+      background: var(--accent-hex);
       color: #000;
       border: none;
       border-radius: 8px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      font-family: Arial, sans-serif;
       transition: background 0.15s;
     }
 

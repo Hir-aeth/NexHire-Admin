@@ -20,7 +20,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
             </div>
             <div class="forum-meta">
               <div class="meta-item">
-                <svg width="15" height="15" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <rect x="3" y="4" width="18" height="18" rx="2"/>
                   <line x1="16" y1="2" x2="16" y2="6"/>
                   <line x1="8" y1="2" x2="8" y2="6"/>
@@ -29,7 +29,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
                 <span>{{ forum.dateDebut }}</span>
               </div>
               <div class="meta-item">
-                <svg width="15" height="15" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
@@ -37,8 +37,8 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
               </div>
             </div>
           </div>
-          <div class="forum-icon-wrap">
-            <svg width="64" height="64" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="forum-icon-wrap" style="color: rgba(34,197,94,0.25)">
+            <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
@@ -129,8 +129,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     .layout {
       display: flex;
       min-height: 100vh;
-      background: #0a0a0a;
-      font-family: Arial, sans-serif;
+      background: var(--bg);
     }
 
     .main {
@@ -144,8 +143,8 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
 
     /* ── Forum Card ── */
     .forum-card {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 28px 32px;
       display: flex;
@@ -156,7 +155,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     .forum-title {
       font-size: 20px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-strong);
       margin-bottom: 10px;
     }
 
@@ -179,7 +178,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       align-items: center;
       gap: 6px;
       font-size: 13px;
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
     .forum-icon-wrap {
@@ -192,7 +191,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       display: inline-block;
       padding: 3px 10px;
       background: rgba(34, 197, 94, 0.12);
-      color: #22c55e;
+      color: var(--accent-hex);
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
@@ -202,7 +201,7 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       display: inline-block;
       padding: 3px 10px;
       background: rgba(107, 114, 128, 0.15);
-      color: #6b7280;
+      color: var(--text-muted);
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
@@ -216,8 +215,8 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
     }
 
     .kpi-card {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
       display: flex;
@@ -235,27 +234,27 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       flex-shrink: 0;
     }
 
-    .kpi-icon-blue { background: rgba(59, 130, 246, 0.12); color: #60a5fa; }
-    .kpi-icon-green { background: rgba(34, 197, 94, 0.12); color: #22c55e; }
-    .kpi-icon-orange { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+    .kpi-icon-blue { background: rgba(59, 130, 246, 0.12); color: var(--accent2); }
+    .kpi-icon-green { background: rgba(34, 197, 94, 0.12); color: var(--accent-hex); }
+    .kpi-icon-orange { background: rgba(245, 158, 11, 0.12); color: var(--warning); }
 
     .kpi-label {
       font-size: 13px;
-      color: #6b7280;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
     .kpi-value {
       font-size: 30px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-strong);
       line-height: 1;
     }
 
     /* ── Table ── */
     .table-card {
-      background: #1a1a1a;
-      border: 1px solid #2d2d2d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
     }
@@ -264,8 +263,8 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       padding: 20px 24px 16px;
       font-size: 16px;
       font-weight: 600;
-      color: #ffffff;
-      border-bottom: 1px solid #2d2d2d;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
     }
 
     .table-wrap { overflow-x: auto; }
@@ -280,22 +279,22 @@ import { AdminDataService, Entreprise } from '../../services/admin-data.service'
       text-align: left;
       font-size: 12px;
       font-weight: 600;
-      color: #6b7280;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      background: #1f1f1f;
+      background: var(--field);
     }
 
     td {
       padding: 14px 24px;
       font-size: 14px;
-      color: #d1d5db;
-      border-top: 1px solid #252525;
+      color: var(--text);
+      border-top: 1px solid rgba(255,255,255,0.04);
     }
 
-    .td-bold { color: #ffffff; font-weight: 500; }
+    .td-bold { color: var(--text-strong); font-weight: 500; }
 
-    tr:hover td { background: #212121; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
 
     @media (max-width: 900px) {
       .kpi-grid { grid-template-columns: 1fr; }

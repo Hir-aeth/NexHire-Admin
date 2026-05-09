@@ -1,5 +1,5 @@
     .not-found {
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -24,7 +24,7 @@
     h1 {
       margin-top: 14px;
       font-size: 24px;
-      color: #f5f5f5;
+      color: var(--text);
     }
     p {
       margin-top: 8px;
@@ -47,9 +47,9 @@
     }
     .primary {
       background: var(--accent);
-      color: #050505;
+      color: #000;
     }
     .secondary {
       border: 1px solid var(--border2);
-      color: #d0d0d0;
+      color: var(--text-soft);
     }
