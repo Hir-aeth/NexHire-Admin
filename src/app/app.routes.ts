@@ -10,5 +10,10 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'admin/login',
     pathMatch: 'full'
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./not-found/not-found.component').then(m => m.NotFoundComponent)
   }
 ];
