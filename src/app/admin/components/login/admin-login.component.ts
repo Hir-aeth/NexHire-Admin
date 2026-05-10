@@ -280,39 +280,7 @@ import { AdminAuthService } from '../../services/admin-auth.service';
       color: var(--text);
     }
 
-    .input {
-      width: 100%;
-      padding: 15px 18px;
-      background: var(--field);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      color: var(--text-muted);
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
-      -webkit-appearance: none;
-      appearance: none;
-      color-scheme: dark;
-    }
-
-    .input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
-    }
-
-    .input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .input:-webkit-autofill,
-    .input:-webkit-autofill:hover,
-    .input:-webkit-autofill:focus {
-      -webkit-box-shadow: 0 0 0 1000px var(--field) inset !important;
-      -webkit-text-fill-color: var(--text-muted) !important;
-      caret-color: var(--text-soft);
-      border-color: var(--border2);
-      transition: background-color 5000s ease-in-out 0s;
-    }
+    .input { width: 100%; padding: 15px 18px; font-size: 15px; }
 
     .password-wrap {
       position: relative;

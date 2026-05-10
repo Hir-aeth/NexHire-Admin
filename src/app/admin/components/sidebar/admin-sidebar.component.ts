@@ -48,7 +48,7 @@ import { AdminAuthService } from '../../services/admin-auth.service';
         <div class="user-avatar">AD</div>
         <div class="user-info">
           <div class="user-name">Admin</div>
-          <div class="user-role">admin&#64;nexhire.ma</div>
+          <div class="user-role">Administrateur</div>
         </div>
       </div>
 
