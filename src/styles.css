@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; background: #0a0a0a; }
+body { font-family: 'Space Grotesk', sans-serif; color: #e5e7eb; }
 
 :root {
   --accent: oklch(65% 0.19 145);
   --accent-hex: #22c55e;
+  --accent-hover: #16a34a;
   --bg: #0a0a0a;
   --surface: #111111;
+  --surface-deep: #0d0d0d;
   --card: #1a1a1a;
   --field: #252525;
   --border: #242424;
@@ -25,17 +29,140 @@
   --glow-green: 0 0 24px rgba(34,197,94,0.2);
 }
 
-html, body {
-  height: 100%;
-  background: var(--bg);
-  color: var(--text-strong);
-  font-family: 'Space Grotesk', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #3d3d3d; }
 
 button, input, select, textarea { font-family: inherit; }
+
+input,
+select,
+textarea {
+  background: var(--field);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  color: var(--text-muted);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  color-scheme: dark;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+select option {
+  background: var(--field);
+  color: var(--text-muted);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #252525 inset !important;
+  -webkit-text-fill-color: #6b7280 !important;
+  caret-color: #9ca3af;
+  border-color: var(--border2);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.nx-page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nx-page-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.nx-text-strong {
+  color: var(--text);
+}
+
+.nx-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.nx-btn-primary {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nx-btn-ghost {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nx-btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.nx-back-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.nx-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nx-overline {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.nx-kiosk-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.nx-btn-danger {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: var(--error);
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nx-btn-danger:hover {
+  background: rgba(239,68,68,0.16);
+  border-color: rgba(239,68,68,0.45);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes kioskPulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.4); } }
